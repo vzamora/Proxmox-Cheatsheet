@@ -1,5 +1,6 @@
 To install Home Assistant, you have to have Caddy set-up first, but then go to your Proxmox root console and run.
 Be patient, there's a lot going on.  Thanks to tteck for putting the bash script together!!
+	
 	bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/vm/haos-vm-v3.sh)"
 
 Open Home Assistant in the browser at the address specified.  Then, go to “Supervisor” and click “Add-On Store” at the top, and install “File Editor” Add-On.
