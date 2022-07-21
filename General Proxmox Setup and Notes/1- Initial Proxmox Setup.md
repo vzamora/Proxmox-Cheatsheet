@@ -8,6 +8,7 @@ ____________________________________________________________________________
 To create an automated script to Update all of your LXC Containers daily at 2:00am:
 
 In your Proxmox Host console, start by creating a new bash file named ‘autoupdate.sh’ by running:
+        
         nano /opt/autoupdate.sh
 
 And copy/paste in the below code.  It’ll start any off containers, update them, and then shut them down.  It’ll leave on but update any containers that are running.
