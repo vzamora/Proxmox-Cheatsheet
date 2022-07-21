@@ -1,7 +1,14 @@
-To install NextCloud (or probably OwnCloud), use the TKL installer like a normal LXC but DO NOT start it.  Edit the config file:
+To install NextCloud (or probably OwnCloud), use the TKL installer like a normal LXC but DO NOT start it without enabling Nesting first.
+
+This can be done two ways.
+In the GUI, select your LXC, select "Options" then select the "Features" row.  Click the "Edit" button at the top with "Features" highlighted, and check the box to enable "Nesting"
+
+In the CLI, you just edit your config file by:
+
 	nano /etc/pve/lxc/####.conf
 
-and enable nesting by adding the following line:
+Where #### is the CT number, and you enable nesting by adding the following line:
+	
 	features: nesting=1 
 
 THEN start the LXC.
@@ -15,4 +22,6 @@ NOTE: THE ABOVE ONLY INSTALLS THE LATEST ON TKL AND HAS HURDLES TO CLEAR PRIOR T
 
 Nextcloud install is located in /var/www/nextcloud and /var/www/nextcloud-data
 
-Running occ commands requires the use of “sudo -u www-data” prior to whatever Nextcloud tells you to use, like if it says “run ./occ update” then you’d need to run “sudo -u www-data /var/www/nextcloud occ update” from anywhere or run “sudo -u www-data occ update” from inside the /var/www/nextcloud directory.
+Running occ commands requires the use of “sudo -u www-data” prior to whatever Nextcloud tells you to use.
+
+Like if it says “run ./occ update” then you’d need to run “sudo -u www-data /var/www/nextcloud occ update” from anywhere or run “sudo -u www-data occ update” from inside the /var/www/nextcloud directory.
