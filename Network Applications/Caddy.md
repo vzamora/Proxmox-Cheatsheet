@@ -1,7 +1,9 @@
 Create a new Debian LXC, and run the below  to get a clean slate to start from.
+	
 	apt-get update && apt-get upgrade -y
 	
 Now install the keyring, add the repo keys, update repo sources, and install caddy.
+	
 	apt install -y debian-keyring debian-archive-keyring apt-transport-https
 	curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | tee /etc/apt/trusted.gpg.d/caddy-stable.asc
 	curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
@@ -13,9 +15,11 @@ ________________________________________________________________________________
 Each program may need its own specific Caddy setup, but here's an example Caddy file I have created for many of the LXCs in the Proxmox-Cheatsheet overall project.
 
 To create it, run the following:
+	
 	nano /etc/caddy/Caddyfile
 	
 Then paste in the below (obviously editing the IP addresses, domain, and/or ports as needed):
+	
 	radarr.domain.org {
 		reverse_proxy 192.168.1.XXX:7878 {
 		}
@@ -74,5 +78,6 @@ Then paste in the below (obviously editing the IP addresses, domain, and/or port
 	}
 
 Now navigate to the Caddyfile and reload Caddy to make it work by running:
+	
 	cd /etc/caddy
 	caddy reload
