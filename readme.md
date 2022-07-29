@@ -1,4 +1,4 @@
-# VZamora's Proxmox cheatsheet
+# VZamora's Proxmox Cheatsheet
 
 	In most of the guides, code blocks (like this note is in) is used exclusively for things you put in the console.
 	In this guide, I'm just using code blocks as another separator.
