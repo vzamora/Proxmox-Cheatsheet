@@ -1,7 +1,9 @@
 To Install OctoPrint:
 
 Create a new VM on Debian.  I’m doing this with no GUI for a more lightweight install, similar to what would be a Debian 11 “Server” distro.
+
 Deselect the GUI during install, but install SSH.  I’m using a 16GB hard drive, 2GB ram, and 2 cores.  Should be overkill compared to a Pi.
+
 Create a second user called “pi” - the installer should walk you through that.  Initially, log in as root.
 
 Make sure you have Python3 installed by running:
@@ -25,7 +27,9 @@ Then, log in as user ‘pi’ and run:
 	python3 -m venv venv
 	source venv/bin/activate
 
-Now you have all of the prereqs and have started creating the system, and you’ve created a Virtual Environment (venv) for OctoPrint to run in.  Now time to install OctoPrint
+Now you have all of the prereqs and have started creating the system, and you’ve created a Virtual Environment (venv) for OctoPrint to run in.
+
+Now time to install OctoPrint
 	
 	pip install pip --upgrade
 	pip install octoprint
