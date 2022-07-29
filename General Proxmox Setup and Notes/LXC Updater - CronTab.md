@@ -1,6 +1,7 @@
 To create an automated script to Update all of your LXC Containers daily at 2:00am:
 
 In your Proxmox Host console, start by creating a new bash file named ‘autoupdate.sh’ by running:
+	
 	nano /opt/autoupdate.sh
 
 And copy/paste in the below code.  It’ll start any off containers, update them, and then shut them down.  It’ll leave on but update any containers that are running.
@@ -9,30 +10,31 @@ And copy/paste in the below code.  It’ll start any off containers, update them
 	# update all containers
 
 	# list of container ids we need to iterate through
-	containers=$(pct list | tail -n +2 | cut -f1 -d' ')
+	containers=$(/usr/sbin/pct list | tail -n +2 | cut -f1 -d' ')
 
 	function update_container() {
 	  container=$1
 	  echo "[Info] Updating $container"
 	  # to chain commands within one exec we will need to wrap them in bash
-	  pct exec $container -- bash -c "apt update && apt upgrade -y && apt autoremove -y"
+	  /usr/sbin/pct exec $container -- bash -c "apt update && apt upgrade -y && apt autoremove -y"
 	}
 
 	for container in $containers
 	do
-	  status=`pct status $container`
+	  status=`/usr/sbin/pct status $container`
 	  if [ "$status" == "status: stopped" ]; then
 	    echo [Info] Starting $container
-	    pct start $container
+	    /usr/sbin/pct start $container
 	    echo [Info] Sleeping 5 seconds
 	    sleep 5
 	    update_container $container
 	    echo [Info] Shutting down $container
-	    pct shutdown $container &
+	    /urs/sbin/pct shutdown $container &
 	  elif [ "$status" == "status: running" ]; then
 	    update_container $container
 	  fi
 	done; wait
+
 
 Now use Ctrl+x, Y, and Enter to close, save, and exit the “nano” text editor.
 
