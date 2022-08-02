@@ -1,3 +1,5 @@
+Create a new Debian LXC, and then open the terminal for it. 
+
 To install PiHole with a single command:
 
 	apt-get update && apt-get upgrade -y && apt-get autoremove && apt install curl -y && curl -sSL https://install.pi-hole.net | bash
