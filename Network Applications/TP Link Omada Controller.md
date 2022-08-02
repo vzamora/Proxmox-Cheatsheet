@@ -1,3 +1,5 @@
+Create a new Debian LXC, then open the Terminal for it.
+
 Start by installing Java8 and MongoDB v<4, as prerequisites:
 
 	apt install gnupg
