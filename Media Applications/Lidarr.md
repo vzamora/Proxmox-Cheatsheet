@@ -55,3 +55,5 @@ Then reload the daemon, enable the service, and check the status.
 And remove the tarball for file space savings:
 	
 	rm Lidarr*.linux*.tar.gz
+
+Now you should be up-and running with Lidarr. Accessing the WebUI should be as simple as visiting http://ipaddr:8686
