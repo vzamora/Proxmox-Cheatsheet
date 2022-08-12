@@ -29,7 +29,7 @@ And copy/paste in the below code.  It’ll start any off containers, update them
 	    sleep 5
 	    update_container $container
 	    echo [Info] Shutting down $container
-	    /urs/sbin/pct shutdown $container &
+	    /usr/sbin/pct shutdown $container &
 	  elif [ "$status" == "status: running" ]; then
 	    update_container $container
 	  fi
