@@ -22,7 +22,7 @@ ________________________________________________________________________________
 
 Download Duplicati (update version number as needed)
 	
-	wget https://updates.duplicati.com/beta/duplicati_2.0.5.1-1_all.deb
+	wget https://updates.duplicati.com/beta/duplicati_2.0.6.3-1_all.deb
 
 Now run the installer:
 	
