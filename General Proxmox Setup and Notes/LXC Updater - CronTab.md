@@ -4,7 +4,7 @@ In your Proxmox Host console, start by creating a new bash file named ‘autoupd
 	
 	nano /opt/autoupdate.sh
 
-And copy/paste in the below code.  It’ll start any off containers, update them, and then shut them down.  It’ll leave on but update any containers that are running.
+And copy/paste in the below code.  It’ll start any off containers, update them, and then shut them down.  It’ll leave on but update any containers that are running. Template are ignored.
 
 	#!/bin/bash
 	# update all containers
@@ -19,10 +19,24 @@ And copy/paste in the below code.  It’ll start any off containers, update them
 	  /usr/sbin/pct exec $container -- bash -c "apt update && apt upgrade -y && apt autoremove -y"
 	}
 
+	function check_if_template() {
+	   container=$1
+	   config=`/usr/sbin/pct config $container`
+	   template='template: 1'
+	   if [[ "$config" == *"$template"* ]]; then
+	     isTemplate='true'
+	   else
+	     isTemplate='false'
+	   fi
+	}
+	
 	for container in $containers
 	do
 	  status=`/usr/sbin/pct status $container`
-	  if [ "$status" == "status: stopped" ]; then
+	  if [ "$isTemplate" == "true" ]; then
+	    echo [Info] $container is template
+	    continue
+	  elif [ "$status" == "status: stopped" ]; then
 	    echo [Info] Starting $container
 	    /usr/sbin/pct start $container
 	    echo [Info] Sleeping 5 seconds
