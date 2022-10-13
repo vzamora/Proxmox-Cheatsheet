@@ -24,4 +24,4 @@ Nextcloud install is located in /var/www/nextcloud and /var/www/nextcloud-data
 
 Running occ commands requires the use of “sudo -u www-data” prior to whatever Nextcloud tells you to use.
 
-Like if it says “run ./occ update” then you’d need to run “sudo -u www-data /var/www/nextcloud occ update” from anywhere or run “sudo -u www-data occ update” from inside the /var/www/nextcloud directory.
+Like if it says “run ./occ update” then you’d need to run “sudo -u www-data php /var/www/nextcloud occ update” from anywhere or run “sudo -u www-data php occ update” from inside the /var/www/nextcloud directory.
