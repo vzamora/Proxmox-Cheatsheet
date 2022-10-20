@@ -45,3 +45,24 @@ To safely move data from one point to another, the “RSync” command is the be
 The trailing slash on the “From” directory is CRITICAL
 
 	rsync -rva /ZFSPool1/storage/subvol-100-disk-0/XXXX/ /ZFSPool1
+____________________________________________________________________________
+
+To replace a drive in your ZPool:
+
+It's simple, you just run:
+	
+	zpool replace ZFSPOOLNAME DRIVE_YOU_WANT_GONE DRIVE_YOU_WANT_TO_USE
+
+At least for me, when I run "zpool status ZFSPOOLNAME" I get a bunch of wwn-0x5000???? type names for my drives.  I'm like 90% sure that's because I'm passing them through an HBA.
+
+Either way, the way to figure out how to replace which drive is to figure out which drive you want to replace (like /dev/sda) and then figure out its /dev/disk/by-id/? address.  To do this, run:
+
+	udevadm info --query=all --name=/dev/sda
+	
+Nearly at the bottom will be a line called "DEVLINKS" that lists the /dev/disk/by-id name in both wwn- format and ata-DRIVE_SKU-SERIAL_NUMBER format.
+
+What matters is that you get the by-id/wwn- format number written down.
+
+Do this for both drives as wwn- is more stable than /dev/sd# formatting.  Then your command will look like below.  Remember, the drive you're taking out is the first one, and you're replacing that drive with the second disk in the command:
+
+	zpool replace ZFSPOOLNAME /dev/disk/by-id/wwn-0x5000######### /dev/disk/by-id/wwn-0x5000#########
