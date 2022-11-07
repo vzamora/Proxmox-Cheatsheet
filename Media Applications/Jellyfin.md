@@ -6,24 +6,15 @@ In a new Debian CT, let's start by running a command to get everything up-to-dat
 
 This step takes a little longer than the absolutely minimum required, but I like doing it to ensure things are fine.  Shouldn't be more than a couple of additional minutes.
 
-	apt update && apt upgrade -y && apt autoremove -y
-	apt install sudo apt-transport-https gnupg lsb-release
-	apt update && apt upgrade -y && apt autoremove -y
+	apt update && apt upgrade -y && apt autoremove -y && apt install -y sudo apt-transport-https gnupg lsb-release curl && apt update && apt upgrade -y && apt autoremove -y
 
 Jellyfin is already supported on Debian Buster/Bullseye by the Jellyfin team, so:
 	
-	sudo apt install extrepo
-	sudo extrepo enable jellyfin
-	
-Now to import the GPG signing key (signed by the Jellyfin Team) and then add a repository configuration:
-	
-	curl -fsSL https://repo.jellyfin.org/debian/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/trusted.gpg.d/debian-jellyfin.gpg
-	echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/debian $( lsb_release -c -s ) main" | sudo tee /etc/apt/sources.list.d/jellyfin.list
+	sudo apt install -y extrepo && sudo extrepo enable jellyfin
 	
 Now, update again and install Jellyfin:
 
-	sudo apt update
-	sudo apt install jellyfin
+	sudo apt update && sudo apt install -y jellyfin
 
 Lastly, check on the status of Jellyfin:
 	
