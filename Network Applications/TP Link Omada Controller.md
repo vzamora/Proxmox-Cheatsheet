@@ -47,3 +47,18 @@ You should get an output that looks like:
 	========================
 
 Now you can visit the WebUI by going to http://ipaddr:8088
+__________________________________________________________________________________________________________________________________
+
+To update Omada controller, first you need to back up your settings.  You can do this via the WebUI, and save it to your computer.
+
+Now, you can start uninstalling using the dpkg -r command (as opposed to the dpkg -i command used to install).
+
+	dpkg -r omadac
+	
+It'll take a minute or two to stop the program, take control, and then start uninstalling.  It'll ask if you want to back up the settings.  I suggest you do so, on top of backing up via WebUI.
+
+Now just start back at the wget command for the new version and "dpkg -i" the newest version.
+
+Once you run the dpkg install command, it should tell you it detected a backup.  Go ahead and hit "yes" to restore from the detected backup.
+
+If it doesn't detect the backup, no problem.  Go ahead and start it up and get to the WebUI and just restore the backup you have on your client machine.
