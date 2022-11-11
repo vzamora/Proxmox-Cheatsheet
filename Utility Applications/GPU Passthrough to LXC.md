@@ -2,7 +2,7 @@ Currently, these are just notes as I haven't gotten it working yet.  Most of thi
 
 In Proxmox, install the latest Nvidia drivers.  At the time of writing, the file name is "NVIDIA-Linux-x86_64-510.85.02.run"
 
-Do this by going to [the Nvidia website](https://www.nvidia.com/download/index.aspx?lang=en-us and downloading the latest.)
+Do this by going to [the Nvidia website](https://www.nvidia.com/download/index.aspx?lang=en-us) and downloading the latest.
 
 While you can use wget in Proxmox, I recommend downloading to your client computer and using WINSCP (or similar) to transfer it to /root/ in Proxmox.  This is because it is CRITICAL that everything be running the same version of the driver.
 
