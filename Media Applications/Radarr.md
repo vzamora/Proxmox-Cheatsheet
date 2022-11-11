@@ -5,15 +5,15 @@ Install sqlite3, a prereq for Radarr:
 
 Download the latest file
 
-wget --content-disposition 'http://radarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64'
+	wget --content-disposition 'http://radarr.servarr.com/v1/update/master/updatefile?os=linux&runtime=netcore&arch=x64'
 
 Uncompress the tarball
 
-tar -xvzf Radarr*.linux*.tar.gz
+	tar -xvzf Radarr*.linux*.tar.gz
 
 Move the files to /opt:
 
-mv Radarr /opt
+	mv Radarr /opt
 	adduser radarr
 	chown radarr:radarr -R /opt/Radarr
 ____________________________________________________________________________
