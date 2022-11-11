@@ -10,7 +10,7 @@ In a new Debian LXC, create a user "jackett" by running the following:
 
 Now extract and copy the release to a temp directory (updating the wget link as necessary):
 
-cd `mktemp -d`
+	cd `mktemp -d`
 	wget https://github.com/Jackett/Jackett/releases/download/v0.20.1300/Jackett.Binaries.LinuxAMDx64.tar.gz
 	tar zxvf *.tar.gz
 
