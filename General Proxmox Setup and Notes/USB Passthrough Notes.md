@@ -33,7 +33,7 @@ In my case, I use Proxmox to manage my containers. I need to go to /etc/pve/lxc/
 
 I will have to put two lines more into the configuration file:
 	
-	lxc.cgroup.devices.allow: c 189:* rwm
+	lxc.cgroup2.devices.allow: c 189:* rwm
 	lxc.mount.entry: /dev/bus/usb/001/020 dev/bus/usb/001/020 none bind,optional,create=file
 
 The former is for allowing the container privilege to access the device specified by its major and minor numbers.
