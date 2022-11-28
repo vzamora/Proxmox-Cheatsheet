@@ -86,7 +86,7 @@ Install these by running:
 
 Now re-run the drivers:
 
-	NVIDIA*.run --no-kernel-module
+	./NVIDIA*.run --no-kernel-module
 	
 And reboot the container.
 
