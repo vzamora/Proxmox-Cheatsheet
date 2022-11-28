@@ -76,7 +76,7 @@ Now it gets fun and picky.....your container still doesn't have any drivers inst
 Remember that driver we downloaded to our client instead of using wget?  Now's the time to use it!  If you ran wget, just make sure you're using the exact same link.  Either way, have the driver .run file in /root and make sure you install it without kernel modules.
 
 	chmod +x NVIDIA*.run
-	NVIDIA*.run --no-kernel-module
+	./NVIDIA*.run --no-kernel-module
 
 This will likely throw errors referencing something like X.Org and libglvnd
 
