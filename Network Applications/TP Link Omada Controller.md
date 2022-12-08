@@ -53,8 +53,10 @@ To update Omada controller, first you need to back up your settings.  You can do
 
 Now, you can start uninstalling using the dpkg -r command (as opposed to the dpkg -i command used to install).
 
-	dpkg -r omadac
+	dpkg -r omada*.deb
 	
+If you have more than one version of the omada controller .deb, you'll have to be more specific about which one.  I suggest you delete the old one after the new one is confirmed working.
+
 It'll take a minute or two to stop the program, take control, and then start uninstalling.  It'll ask if you want to back up the settings.  I suggest you do so, on top of backing up via WebUI.
 
 Now just start back at the wget command for the new version and "dpkg -i" the newest version.
