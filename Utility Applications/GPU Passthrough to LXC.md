@@ -29,7 +29,9 @@ The final step is to add a udev rule to create the required device files for the
 
 	KERNEL=="nvidia", RUN+="/bin/bash -c '/usr/bin/nvidia-smi -L && /bin/chmod 666 /dev/nvidia*'"
 	KERNEL=="nvidia_uvm", RUN+="/bin/bash -c '/usr/bin/nvidia-modprobe -c0 -u && /bin/chmod 0666 /dev/nvidia-uvm*'"
-	
+	SUBSYSTEM=="module", ACTION=="add", DEVPATH=="/module/nvidia", RUN+="/usr/bin/nvidia-modprobe -m"
+
+
 Reboot and run "nvidia-smi" to see if something comes up.  It should look like this:
 
 ![image](https://user-images.githubusercontent.com/449075/201356065-7398355f-10dc-4f66-a8c2-eab5802933a0.png)
