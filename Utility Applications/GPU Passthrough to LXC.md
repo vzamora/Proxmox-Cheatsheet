@@ -23,7 +23,7 @@ and paste into it the below:
 
 Then update initramfs with:
 
-	update-iniramfs -u -k all
+	update-initramfs -u -k all
 	
 The final step is to add a udev rule to create the required device files for the nvidia driver, which for reasons aren’t created automatically. This is done in the /etc/udev/rules.d/70-nvidia.rules file:
 
