@@ -63,6 +63,10 @@ Nearly at the bottom will be a line called "DEVLINKS" that lists the /dev/disk/b
 
 What matters is that you get the by-id/wwn- format number written down.
 
+You can also use the following command and follow the output to find the same corresponding info:
+
+	ls /dev/disk/by-id -ahl
+
 Do this for both drives as wwn- is more stable than /dev/sd# formatting.  Then your command will look like below.  Remember, the drive you're taking out is the first one, and you're replacing that drive with the second disk in the command:
 
 	zpool replace ZFSPOOLNAME /dev/disk/by-id/wwn-0x5000######### /dev/disk/by-id/wwn-0x5000#########
