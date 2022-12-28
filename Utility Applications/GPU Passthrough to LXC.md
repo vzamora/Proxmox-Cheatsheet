@@ -1,6 +1,6 @@
 Currently, these are just notes as I haven't gotten it working yet.  Most of this is stolen from a combination of [TheOrangeOne](https://theorangeone.net/posts/lxc-nvidia-gpu-passthrough/), and [Craft Computing's vGPU Guide](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbGFYUXhMWU92bmNNbTZZRU0zRnhKRGZ4Xzktd3xBQ3Jtc0tsNjA1cnBCYVVIVDRNZ3ExMFpFN0dJVzZhUUV2cHZXbU5OVUxDSXZudEZDVkdVTFluYWQwVEFSZV9naXNsNi1MZHhYSHJRTTJhbDE4LWdzaHk5dnpHdG8wNFh4RmIxaExDLUtreHRRRF9ESzdSLVVTYw&q=https%3A%2F%2Fdrive.google.com%2Fdrive%2Ffolders%2F1KHf-vxzUCGqsWZWOW0bXCvMhXh5EJxQl%3Fusp%3Dsharing&v=jTXPMcBqoi8).
 
-In Proxmox, install the latest Nvidia drivers.  At the time of writing, the file name is "NVIDIA-Linux-x86_64-510.85.02.run"
+In Proxmox, install the latest Nvidia drivers.  At the time of writing, the file name is "NVIDIA-Linux-x86_64-525.60.13.run"
 
 Do this by going to [the Nvidia website](https://www.nvidia.com/download/index.aspx?lang=en-us) and downloading the latest.
 
@@ -32,7 +32,7 @@ The final step is to add a udev rule to create the required device files for the
 	SUBSYSTEM=="module", ACTION=="add", DEVPATH=="/module/nvidia", RUN+="/usr/bin/nvidia-modprobe -m"
 
 
-Reboot and run "nvidia-smi" to see if something comes up.  It should look like this:
+Reboot and run "nvidia-smi" to see if something comes up.  It should look like this: (note the version number is 510.x - that version is actually too old to work appropriately with Frigate NVR, so please use a newer version - I believe it requires 525.x or higher)
 
 ![image](https://user-images.githubusercontent.com/449075/201356065-7398355f-10dc-4f66-a8c2-eab5802933a0.png)
 
