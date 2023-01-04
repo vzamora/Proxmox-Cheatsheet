@@ -13,16 +13,17 @@ To do it in CLI, go to your Proxmox Host Console and run the below, where ???? i
 
 Next, add this line(s) to the bottom of the config file:
 	
-	features: nesting=1, fuse=1
+	features: nesting=1
+	features: fuse=1
 	
 Now that Nesting has been enabled, start the container and do the usual updating before you start:
 	
-	apt-get update && apt-get upgrade -y && apt-get autoremove
+	apt update && apt upgrade -y && apt autoremove
 
 Then install some prereqs and add Docker’s official GPG key:
 	
-	apt-get install ca-certificates curl gnupg lsb-release fuse-overlayfs
-	apt-get update && apt-get upgrade -y && apt-get autoremove
+	apt install -y ca-certificates curl gnupg lsb-release fuse-overlayfs && \
+	apt update && apt upgrade -y && apt autoremove -y && \
 	curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 Now use the following command to set up the stable repository.
@@ -31,18 +32,15 @@ Now use the following command to set up the stable repository.
 
 Now install Docker Engine:
 	
-	apt-get update
-	apt-get install docker-ce docker-ce-cli containerd.io
+	apt update && apt install -y docker-ce docker-ce-cli containerd.io
 
 Now to install Portainer, you create the volume and then download and install the Portainer Server container:
 	
 	docker volume create portainer_data
+Then:
 
-	docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
-	    --restart=always \
-	    -v /var/run/docker.sock:/var/run/docker.sock \
-	    -v portainer_data:/data \
-	    cr.portainer.io/portainer/portainer-ce:2.9.3
+	docker run -d -p 8000:8000 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data cr.portainer.io/portainer/portainer-ce:latest
+	    
 	    
 Now you have to modify a file to enable overlayfs by opening the file in nano and changing a line:
 
