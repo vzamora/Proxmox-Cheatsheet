@@ -8,6 +8,13 @@ On a new Debian CT, let's check for updates and install some prereq's:
 	apt install sudo curl sqlite3
 	apt update && apt upgrade -y && apt autoremove
 	
+Now we need to create a Prowlarr user, Prowlarr group, and a directory for Prowlarr to use later on.
+
+	sudo adduser -m prowlarr
+	sudo groupadd prowlarr
+	sudo usermod -a -G prowlarr prowlarr
+	mkdir /var/lib/prowlarr
+	
 Now download the correct binaries for your system.  I'm assuming you're using AMD64 architecture, but change as needed.
 
 After download, you uncompress the files and move to /opt/
@@ -48,5 +55,3 @@ Now reload the systemd daemon, enable the service, and remove the downloaded tar
 	rm Prowlarr*.linux*.tar.gz
 	
 Now you should be up-and running with Prowlarr. Accessing the WebUI should be as simple as visiting http://ipaddr:9696
-
-The best thing to do is to bind-mount your media storage to this container, and then point Jellyfin at that bind mount.
