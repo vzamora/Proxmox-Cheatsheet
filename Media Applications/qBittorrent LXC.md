@@ -9,11 +9,15 @@ Then: Download, prep, build, and install qBit.
 	wget -qO ~/qbittorrent-nox-static.sh https://git.io/qbstatic 
 	chmod +x ~/qbittorrent-nox-static.sh
 
-Prep:
+#Prep:
+
 	sudo ~/qbittorrent-nox-static.sh
-Build:
+#Build:
+	
 	~/qbittorrent-nox-static.sh all
-Install:
+
+#Install:
+	
 	sudo ~/qbittorrent-nox-static.sh install
 
 Configure qBit:
