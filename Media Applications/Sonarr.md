@@ -14,4 +14,4 @@ Now to update repositories, install sonarr, update again, and then remove bloat 
 Without getting into major permissions issues, just set the user and group to “root” when prompted, NOT “sonarr”
 This isn't the safest way, and there's better options here, but I know it works.  I'll try to update the "safest" way of going about this later.
 
-Now you can go to the Sonarr WebUI by going to http://ipaddr:9898
+Now you can go to the Sonarr WebUI by going to http://ipaddr:8989
