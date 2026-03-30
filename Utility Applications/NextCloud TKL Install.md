@@ -20,7 +20,7 @@ Note: I've only been able to access the WebUI by setting up Caddy.
 
 NOTE: THE ABOVE ONLY INSTALLS THE LATEST ON TKL AND HAS HURDLES TO CLEAR PRIOR TO UPDATING.  I KNOW I NEED TO UPDATE THIS SECTION FOR INSTALLING NEXTCLOUD LATEST-REV
 
-Nextcloud install is located in /var/www/nextcloud and /var/www/nextcloud-data
+Nextcloud install is located in /srv/nextcloud
 
 Running occ commands requires the use of “sudo -u www-data” prior to whatever Nextcloud tells you to use.
 
