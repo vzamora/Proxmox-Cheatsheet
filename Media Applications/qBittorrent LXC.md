@@ -19,8 +19,9 @@ If you installed via the old guide, below, you'll need to change one thing when 
 
 and update the "ExecStart=" line to be "ExecStart=/root/bin/qbittorrent-nox"
 
-Then restart the container and you're good-to-go:
+Then reload the daemon and restart the service and you're good-to-go:
 
+	systemctl daemon-reload
 	systemctl restart qbittorrent.service
 
 Now you can access the WebUI by visiting http://ipaddr:8080
