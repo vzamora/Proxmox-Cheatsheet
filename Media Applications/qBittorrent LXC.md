@@ -1,3 +1,34 @@
+Create a new Debian container, and install sudo and run updates:
+	
+	apt install sudo && apt update && apt upgrade -y && apt autoremove
+
+Then install qbittorrent-nox using the provided/official script:
+
+	bash <(curl -sL usrdx.github.io/s/qi.bash) #-lt v1
+
+Note, "-lt v1" flag can be added if you want to install the libtorrent v1.2 package version of qBit.  Without the flag, you'll install the default libtorrent v2 package.
+
+To update the container, you just stop the container, run the script, and restart it.
+
+	systemctl stop qbittorrent.service
+	bash <(curl -sL usrdx.github.io/s/qi.bash)
+	
+If you installed via the old guide, below, you'll need to change one thing when you upgrade, so ignore if you installed via script, but:
+
+	nano /etc/systemd/system/qbittorrent.service
+
+and update the "ExecStart=" line to be "ExecStart=/root/bin/qbittorrent-nox"
+
+Then restart the container and you're good-to-go:
+
+	systemctl restart qbittorrent.service
+
+Now you can access the WebUI by visiting http://ipaddr:8080
+
+________________________________________________________________________________
+All of the below is deprecated now.
+
+<del>
 Shamelessly stolenfrom: https://wiki.owenyoung.com/qbittorrent-setup-for-debian/
 
 Create a new Debian container, and install sudo and run updates:
@@ -61,3 +92,4 @@ Then run the below to reload the services list, enable qbit, and check on the st
 	systemctl daemon-reload && systemctl enable --now qbittorrent.service && systemctl stop qbittorrent && systemctl start qbittorrent && systemctl restart qbittorrent && systemctl status qbittorrent
 
 Now you can access the WebUI by visiting http://ipaddr:8080
+</del>
