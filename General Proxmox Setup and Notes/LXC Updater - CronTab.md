@@ -41,7 +41,8 @@ Now use Ctrl+x, Y, and Enter to close, save, and exit the “nano” text editor
 In your console, you can run /bin/bash /opt/autoupdate.sh and watch it run once to make sure it works....but this is optional.
 
 Still in your Proxmox host console, run the below to get into your cronjobs file.  Select “nano” if it asks.
-	crontab -e
+	
+ 	crontab -e
 	 
 At the bottom, create a new line that simply says:
 
